@@ -1,6 +1,8 @@
 import '../styles/repositories.scss';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RepositoryItem } from './RepositoryItem';
+
+//
 
 const repository = {
     name: 'unform',
@@ -9,6 +11,13 @@ const repository = {
 }
 
 export function RepositoryList() {
+    const [repositories, setRepositories] = useState([]);
+    useEffect(() => {
+        fetch('https://api.github.com/users/eduardocar83/repos')
+            .then(response => response.json())
+            .then(data => setRepositories(data))
+    }, [])
+
     return (
         <section className="repository-list">
             <h1>Lista de Repositórios</h1>
