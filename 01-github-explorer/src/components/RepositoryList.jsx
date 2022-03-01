@@ -1,3 +1,4 @@
+import '../styles/repositories.scss';
 import React from 'react';
 import { RepositoryItem } from './RepositoryItem';
 
